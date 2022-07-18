@@ -8,7 +8,11 @@ export function SocketIO() {
       }
       window.didOnce = true;
       const { io } = await import("socket.io-client");
-      const SERVER_URL = "http://localhost:1337";
+      let SERVER_URL = "http://localhost:1337";
+
+      if (process.env.NODE_ENV === "production") {
+        SERVER_URL = "https://backend-onrender.effectnode.com";
+      }
       const socket = io(SERVER_URL);
 
       //  wait until socket connects before adding event listeners

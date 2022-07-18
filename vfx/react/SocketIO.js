@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { getBaseURL } from "../parts/getBaseURL";
 
 export function SocketIO() {
   useEffect(() => {
@@ -8,11 +9,7 @@ export function SocketIO() {
       }
       window.didOnce = true;
       const { io } = await import("socket.io-client");
-      let SERVER_URL = "http://localhost:1337";
-
-      if (process.env.NODE_ENV === "production") {
-        SERVER_URL = "https://backend-onrender.effectnode.com";
-      }
+      let SERVER_URL = getBaseURL();
       const socket = io(SERVER_URL);
 
       //  wait until socket connects before adding event listeners

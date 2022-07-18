@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { SocketIO } from "../vfx/parts/SocketIO";
+import { SocketIO } from "../vfx/react/SocketIO";
 
 export default function Home() {
   return (
